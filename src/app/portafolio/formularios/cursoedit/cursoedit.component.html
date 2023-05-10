@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col">
+      <div class="card mb-1">
+        <div class="card-body">
+          <form [formGroup]="miFormulario" (ngSubmit)="enviarEditar()">
+            <div class="mb-3 row">
+              <label for="id" class="col-sm-2 col-form-label">Id</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="id" formControlName="id" required>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="institucion" class="col-sm-2 col-form-label">Institución</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="institucion" formControlName="institucion" required>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="nombre_curso" class="col-sm-2 col-form-label">Nombre del Curso</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="nombre_curso" formControlName="nombre_curso" required>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="imagen" class="col-sm-2 col-form-label">Imagen</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="imagen" formControlName="imagen" required>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <button type="submit" class="btn btn-primary float-end">Guardar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

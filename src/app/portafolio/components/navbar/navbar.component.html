@@ -1,0 +1,83 @@
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="col-2">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/img/arg1.png" width="50px" alt="Logo Argentina Programa" class="img-fluid">
+                </a>
+            </div>
+
+
+            <div class="col-10 d-flex justify-content-end">
+                <div class="btn-group me-2" role="group">
+                     
+                    <button (click)="goToGithub()" type="button" class="btn btn-outline-primary"
+                            >
+                       
+                            <i class="fa-brands fa-github fa-lg"></i>
+                       
+                    </button>
+                   
+
+                    <button (click)="goToLinkedIn()" type="button" class="btn btn-outline-primary">
+                            <i class="fa-brands fa-linkedin fa-lg"></i>
+                    </button>
+                        
+                    
+                    <button (click)="goToInstagram()" type="button" class="btn btn-outline-primary">
+                            <i class="fa-brands fa-instagram fa-lg"></i>
+                        </button>
+                    
+                </div>
+                <button  *ngIf="!isLogin"
+                          type="button" class="btn btn-primary me-2 d-none
+                          d-md-block" data-bs-toggle="modal" data-bs-target="#loginModal"
+                        >
+                    Login
+                </button>
+                <button *ngIf="!isLogin"
+                        type="button" class="btn btn-primary me-2 d-none
+                        d-md-block" data-bs-toggle="modal" data-bs-target="#registroModal">
+                    Registrarse
+                </button>
+                <button  *ngIf="isLogin" (click)="logOut()"
+                          type="button" class="btn btn-warning me-2 d-none
+                          d-md-block"
+                        >
+                    Cerrar Sesión
+                </button>
+                <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse text-center" id="navbarNav">
+                <ul class="navbar-nav d-md-none">
+                   
+                    <li *ngIf="!isLogin"  class="nav-item d-md-none pb-1 mt-3">
+                        <button type="button" class="btn btn-primary
+                                me-2 w-25" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            Login
+                        </button>
+                    </li>
+                    <li *ngIf="!isLogin" class="nav-item d-md-none">
+                        <button type="button" class="btn btn-primary
+                                me-2 w-25" data-bs-toggle="modal" data-bs-target="#registroModal">
+                            Registrarse
+                        </button>
+                    </li>
+                    <li>
+                    <button  *ngIf="isLogin" (click)="logOut()" class="nav-item d-md-none"
+                          type="button" class="btn btn-warning
+                          me-2 w-25"
+                        >
+                    Cerrar Sesión
+                </button>
+            </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<app-modal></app-modal>
+<app-modal1></app-modal1>
