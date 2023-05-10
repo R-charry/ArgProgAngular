@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: 'https://rcharry-portfolio.web.app/'
+  url: 'portafolio-apis-backend-argprog-production.up.railway.app'
 };
