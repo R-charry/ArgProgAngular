@@ -1,112 +1,127 @@
-<div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="registroModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="d-flex flex-column">
                     <div class="d-flex">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Registrarse</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
                     </div><br>
                     <p>El registro esta realizado solo con fines de que
                         el creador
                         del Portafolio pueda modificarlo</p>
+                        
                 </div>
 
             </div>
             <div class="modal-body mb-3">
                 <form (ngSubmit)="onRegister()" autocomplete="off" [formGroup]="miFormulario">
+
                     <div class="container">
 
-                    
-                    <div class="mb-3 row">
-                        <label class="col-sm-3 col-form-label">Nombre</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" required formControlName="nombre">
-                            <span class="form-text text-danger" *ngIf="campoEsValido('nombre')">Debe de ser de 3 letras</span>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Nombre</label>
+                            <div class="col-sm-9">
+                                <input type="text"
+                                    class="form-control"
+                                    formControlName="nombre"
+                                    required>
+                                <span class="form-text text-danger"
+                                    *ngIf="campoEsValido('nombre')">Debe de ser
+                                    de 3 letras</span>
+                            </div>
                         </div>
-                    </div>
 
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-3 col-form-label">Usuario</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" formControlName="nombreUsuario"
-                            required>
-                            <span class="form-text text-danger" *ngIf="campoEsValido('nombreUsuario')">
-                                {{usuarioErrorMsg}}
-                            </span>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Usuario</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control"
+                                    formControlName="nombreUsuario"
+                                    required>
+                                <span class="form-text text-danger"
+                                    *ngIf="campoEsValido('nombreUsuario')">
+                                    {{usuarioErrorMsg}}
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="mb-3 row">
-                        <label class="col-sm-3 col-form-label">Email</label>
-                        <div class="col-sm-9">
-                            <input type="email" 
-                                class="form-control" 
-                                formControlName="email"
-                                required>
-                            <span *ngIf="campoEsValido('email')"
-                                    class="form-text text-danger" 
-                            >
-                            {{ emailErrorMsg }}
-                            </span>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email"
+                                    class="form-control"
+                                    formControlName="email"
+                                    required>
+                                <span *ngIf="campoEsValido('email')"
+                                    class="form-text text-danger">
+                                    {{ emailErrorMsg }}
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                   
-                    
-                    
+
+
+
                         <div class="mb-3 row">
                             <label class="col-sm-3 col-form-label">Password</label>
                             <div class="col-sm-9">
                                 <input type="password"
-                                       class="form-control"
-                                       formControlName="password"
-                                       >
+                                    class="form-control"
+                                    formControlName="password"
+                                    required>
                                 <span *ngIf="campoNoValido('password')"
-                                    class="form-text text-danger"
-                                    >
-                                      {{passwordErrorMsg}}
+                                    class="form-text text-danger">
+                                    {{passwordErrorMsg}}
                                 </span>
-                       
-                    
+
+
                             </div>
                         </div>
-            
+
                         <!-- password 2 -->
                         <div class="mb-3 row">
                             <label class="col-sm-3 col-form-label">Confirmar</label>
                             <div class="col-sm-9">
                                 <input type="password"
-                                       class="form-control"
-                                       formControlName="password2"
-                                       >
+                                    class="form-control"
+                                    formControlName="password2"
+                                    required>
                                 <span *ngIf="campoNoValido('password2')"
-                                class="form-text text-danger"
-                                >
+                                    class="form-text text-danger">
                                     Los password deben ser iguales.
                                 </span>
-                
+
                             </div>
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" 
+                            <div *ngIf="submitted && registerFail" class="alert alert-danger">Fallo en el Registro: {{errMsj}}</div>
+                            <div *ngIf="submitted && registerOk" class="alert alert-success">Usuario Creado Exitosamente! Redireccionando...</div>
+                            <button type="button" class="btn btn-secondary"
                                 data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" 
-                            (click)="onRegister()"
-                            class="btn btn-primary"
+
+                            <button type="submit"
                             [disabled]="!miFormulario.valid"
-                           
-                            >
-                            Registrarse
-                        </button>
+                                class="btn btn-primary"
+                                >
+                                Registrarse
+                            </button>
+
+
                         </div>
-                        
+
                     </div>
+                    
                 </form>
+               
             </div>
         </div>
     </div>
+
+    
+ 
+
 </div>
 

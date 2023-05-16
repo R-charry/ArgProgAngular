@@ -6,7 +6,8 @@ import { TokenService } from '../../services/authServices/token.service';
 
 @Component({
   selector: 'app-modal',
-  templateUrl: './modal.component.html'
+  templateUrl: './modal.component.html',
+  
 })
 export class ModalComponent implements OnInit {
 
@@ -25,6 +26,7 @@ export class ModalComponent implements OnInit {
 
     isLogged = false;
     isLoginFail = false;
+    submitted = false;
     loginUsuario!: LoginUsuario;
     roles: string[] = [];
     errMsj!: string;
@@ -41,11 +43,13 @@ export class ModalComponent implements OnInit {
       const nombreUsuario = this.miFormulario.value.usuario;
       const password = this.miFormulario.value.password;
       this.loginUsuario = new LoginUsuario(nombreUsuario, password);
+      this.submitted = false;
      // console.log(this.loginUsuario);
       this.authService.login(this.loginUsuario).subscribe(data => {
           this.isLogged = true;
           this.isLoginFail = false;
-  
+          this.submitted = true;
+
           this.tokenService.setToken(data.token);
           this.tokenService.setUserName(data.nombreUsuario);
           this.tokenService.setAuthorities(data.authorities);
@@ -55,7 +59,8 @@ export class ModalComponent implements OnInit {
       }, 
         err => {
         this.isLoginFail = true;
-        this.errMsj = err.error.message;
+        this.submitted = true;
+        this.errMsj = err.error.mensaje;
         console.log(this.errMsj)
         });
     }

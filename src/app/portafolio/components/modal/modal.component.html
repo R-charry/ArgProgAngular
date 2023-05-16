@@ -1,31 +1,49 @@
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form (ngSubmit)="onLogin()" autocomplete="off" [formGroup]="miFormulario">
-          <div class="modal-body">
-            <div class="mb-3 row">
-              <label for="usuario" class="col-sm-3 col-form-label">Usuario</label>
-              <div class="col-sm-9">
-                <input type="usuario" name="usuario" class="form-control" formControlName="usuario" required>
-              </div>
-            </div>
-            <div class="mb-3 row">
-              <label for="password" class="col-sm-3 col-form-label">Contraseña</label>
-              <div class="col-sm-9">
-                <input type="password" name="password" formControlName="password" class="form-control" required>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="submit" [disabled]="!miFormulario.valid" class="btn btn-primary">Iniciar sesión</button>
-          </div>
-        </form>
+<div class="modal fade" id="loginModal" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+          aria-label="Close"></button>
       </div>
+
+      <form (ngSubmit)="onLogin()" autocomplete="off"
+        [formGroup]="miFormulario">
+        <div class="modal-body">
+          <div class="mb-3 row">
+            <label for="usuario" class="col-sm-3 col-form-label">Usuario</label>
+            <div class="col-sm-9">
+              <input type="usuario" name="usuario" class="form-control"
+                formControlName="usuario" required>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="password" class="col-sm-3 col-form-label">Contraseña</label>
+            <div class="col-sm-9">
+              <input type="password" name="password" formControlName="password"
+                class="form-control" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+        
+          <div class="row">
+            <div class="col-12">
+                <div *ngIf="submitted && isLoginFail" class="alert alert-danger">
+                    Error en el Login: No Autorizado
+                </div>
+            </div>
+          </div>
+          
+            <button type="button" class="btn btn-secondary"
+              data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" [disabled]="!miFormulario.valid" class="btn
+              btn-primary">Iniciar sesión</button>
+          
+
+        </div>
+      </form>
     </div>
   </div>
-  
+</div>

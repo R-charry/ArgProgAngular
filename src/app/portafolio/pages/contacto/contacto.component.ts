@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EmailValidatorService } from '../../Validators/email-validator.service';
 import { ValidatorService } from '../../Validators/validator.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -19,14 +18,13 @@ export class ContactoComponent implements OnInit {
   miFormulario: FormGroup = this.fb.group({
     nombre: [, [Validators.required, Validators.minLength(3)]],
     apellido: [, [Validators.required, Validators.minLength(3)]],
-    email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)], [this.emailValidator]],
+    email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
     textarea: ['', [Validators.required, Validators.minLength(15)]]
   });
 
   constructor(
     private fb: FormBuilder,
     private validatorService: ValidatorService,
-    private emailValidator: EmailValidatorService,
     private http: HttpClient
   ) {}
 
@@ -42,8 +40,6 @@ export class ContactoComponent implements OnInit {
       return 'Email es obligatorio';
     } else if (errors?.['pattern']) {
       return 'El valor ingresado no tiene formato de correo';
-    } else if (errors?.['emailTomado']) {
-      return 'El email ya fue tomado';
     } else {
       return '';
     }

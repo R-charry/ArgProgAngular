@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Contactos } from '../../interfaces/proyecto.interface';
-import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactosService {
 
-  private url = environment.url + '/contactos';
+  private url =  'https://rcharry-portfolio.onrender.com/contactos';
 
   constructor(private http: HttpClient) { }
 

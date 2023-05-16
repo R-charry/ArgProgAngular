@@ -10,7 +10,6 @@ import { BannerComponent } from './components/banner/banner.component'; // Actua
 import { NavbarComponent } from './components/navbar/navbar.component'; // Actualización aquí
 import { RouterModule } from '@angular/router';
 import { ContactoComponent } from './pages/contacto/contacto.component';
-import { ToggleComponent } from './components/toggle/toggle.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { Modal1Component } from './components/modal1/modal1.component';
 
@@ -30,7 +29,6 @@ import { ExperienciaeditComponent } from './formularios/experienciaedit/experien
     EducacionComponent,
     BannerComponent,
     ContactoComponent,
-    ToggleComponent,
     ModalComponent,
     Modal1Component,
     ExperienciaFormComponent,

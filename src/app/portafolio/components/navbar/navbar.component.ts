@@ -1,14 +1,17 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { TokenService } from '../../services/authServices/token.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styles: [`
+  .logo-black{
+    filter: invert(1);
+  }
+  
     .button{
-    color: # 0d6efd;
+    color: #0d6efd;
   }`
   ]
 })

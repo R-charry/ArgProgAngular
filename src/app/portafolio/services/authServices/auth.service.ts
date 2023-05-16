@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { NuevoUsuario } from '../../interfaces/nuevoUsuario.models';
@@ -11,7 +10,7 @@ import { JwtDto } from '../../interfaces/token.model';
 })
 export class AuthService {
 
-  private url = environment.url + '/auth/';
+  private url = 'https://rcharry-portfolio.onrender.com/auth/';
 
   constructor(private httpClient: HttpClient) { }
 
